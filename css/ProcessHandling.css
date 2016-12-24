@@ -1,0 +1,253 @@
+body{
+	background:  url(../image/BG2.jpg) top left no-repeat fixed ;
+	background-size: 100%;	
+	margin: 0;
+	padding: 0;
+
+}
+header{
+	padding:10px 50px 0px;
+	font-weight: 900;
+	font-size: 30px;
+	position:fixed;
+	z-index:999;	
+	top: 0;
+	width: 100%;
+	background:rgba(0,0,0,0.3);
+	color: #FFF;
+
+}
+.blank{
+	height: 80px;
+}
+
+
+
+.blank1{
+	height:20px;
+}
+
+.section{
+	margin-top: 20px;
+	position: relative;
+
+}
+.table{
+	overflow: auto;
+}
+.tableheader{
+	font-size: 16px;
+	position:absolute;
+	z-index:999;	
+	top: 48px;
+	background: #51BBF7;
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #666;
+}
+
+.Finish_table{
+	height: 280px;
+}
+h1{
+	font-size: 25px;
+	line-height: 25px;
+	margin: 0;
+	padding: 12PX;
+
+}
+.OStime{
+	display: inline-block;
+	font-size: 20px;
+	font-weight: 900px;
+	margin:20px 30px;
+}
+
+.addprocess>label{
+	display: inline-block;
+	width: 120px;
+	line-height: 2.5em;
+	text-align: right;
+}
+
+.cpusetting>label{
+	display: inline-block;
+	width: 250px;
+	line-height: 2em;
+}
+
+.clr{
+	clear: both;
+}
+input{
+	text-align:center;
+}
+.addprocess>input{
+	width: 180px;
+	line-height: 1.6em;
+}
+.bt{
+	margin-top: 10px;
+	margin-left: 128px;
+	margin-right: 10px;
+}
+.addprocess>button{
+	display: inline-block;
+	width: 80px;
+
+}
+.addprocess,.cpusetting{
+	height: 220px;
+}
+
+.cpusetting>div>h1{
+	display: inline-block;
+	line-height: 2em;
+}
+.cpusetting>div>button{
+	margin-top: 5px;
+	display: inline-block;
+	width: 80px;
+
+}
+
+.W_table{
+	height: 225px;
+}
+
+
+
+ul,li{padding:0;margin:0;}
+.left{
+	float: left;
+	margin: 0 50px;
+	width: 500px;
+
+}
+.right{
+	float: left;
+}
+ul>li{
+	float: left;
+	list-style: none;
+	text-align: center;
+}
+ul{
+		border-bottom: 1px solid #666;
+}
+
+
+.row{
+}
+
+li.w_c1{
+	width: 50px;
+}
+li.w_c2{
+	width: 50px;
+}
+li.w_c3{
+	width: 80px;
+}
+li.w_c4{
+	width: 80px;
+}
+li.w_c5{
+	width: 110px;
+}
+li.w_c6{
+	width: 110px;
+}
+
+li.R_c1{
+	width: 70px;
+}
+li.R_c2{
+	width: 50px;
+}
+
+li.R_c3{
+	width: 50px;
+}
+li.R_c4{
+	width: 80px;
+}
+li.R_c5{
+	width: 110px;
+}
+li.R_c6{
+	width: 110px;
+}
+li.R_c7{
+	width: 110px;
+}
+li.R_c8{
+	width: 90px;
+}
+
+li.F_c1{
+	width: 50px;
+}
+li.F_c2{
+	width: 50px;
+}
+
+li.F_c3{
+	width: 80px;
+}
+li.F_c4{
+	width: 80px;
+}
+li.F_c5{
+	width: 110px;
+}
+li.F_c6{
+	width: 80px;
+}
+li.F_c7{
+	width: 80px;
+}
+li.F_c8{
+	width: 80px;
+}
+li.F_c9{
+	width: 110px;
+}
+
+.wlist{
+	height: 330px;
+}
+.RunWindow{
+	background:rgba(0,0,0,0.25);
+	height: 330px;
+	padding: 0px  ;
+
+}
+.RunWindow>h1{
+	font-size: 20px;
+	padding: 5px;
+
+}
+.running_table{
+	width: 710px;
+	margin: 0 5px 5px;
+	padding-top: 2px;
+	padding-left: 5px;
+	background: #000;
+	color: #FFF;
+	height: 286px;
+}
+.running_table .tableheader{
+	top: 35px;
+	width: 695px;
+}
+.running_table li{
+/*	font-size: 14px;
+*/}
+.running_table>ul{
+	display: inline-block;
+	width: 98%;
+	background-color: #000;
+}
+.Finish_table{
+	width: 720px;
+}
