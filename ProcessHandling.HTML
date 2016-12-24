@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head id="qq">
+	<meta charset="UTF-8">
+	<title>进程调度</title>
+	<link rel="stylesheet" href="css/ProcessHandling.css">
+</head>
+<body>
+<header>进程调度实验<div class="OStime">系统当前时间: <span>-1</span> s <button onclick="resetime()">重置</button></div>
+</header>
+<div class="blank">
+	
+</div>
+<div class="left">
+	
+	<div class="addprocess section">
+		<h1>添加新进程</h1>	
+		<label for="addname">进程名</label>  
+		<input type="text" name="addname" id="addname" list="namelist" required><br>
+		<label for="addruntime">需要运行时间</label> 
+		<input type="number" name="addruntime" id="addruntime" list="numberlist" max="30"  min="1" required><br>
+		<label for="addpriority">优先数</label> 
+		<input class="clr" type="number" name="addpriority" id="addpriority" list="numberlist" max="30" min="1" required><br>
+		<button class="bt" onclick="addprocess()">提交进程</button><button onclick="resetaddinput()">清空</button>
+	</div>
+
+
+	<div>
+		<div class="wlist section">
+			<h1>就绪队列</h1>
+			<div class="W_table table">
+				<div class="blank1"></div>
+				<ul class="w_tableheader tableheader">
+					<li class="w_c1">ID</li>
+					<li class="w_c2">name</li>
+					<li class="w_c3">到达时间</li>
+					<li class="w_c4">优先数</li>
+					<li class="w_c5">需要运行时间</li>
+					<li class="w_c6">已用CPU时间</li>
+				</ul>
+				<div class="clr "></div>
+				<!-- <ul class="row">
+					<li class="w_c1">1</li>
+					<li class="w_c2">AA</li>
+					<li class="w_c3">10</li>
+					<li class="w_c4">2</li>
+					<li class="w_c5">4</li>
+					<li class="w_c6">0</li>
+				</ul>
+				<div class="clr "></div> -->
+
+			</div>
+
+			<div class="clr"></div>
+			<br>
+			<!-- <label for="savelist">保存为</label> 
+			<input type="text" name="savelist" id="savelist" placeholder="请输入列表名称" >
+			<button>保存</button> -->
+		</div>
+		<!-- <div class="section">
+			<div><h1>预设队列</h1></div>
+			<summary>预设队列1 <span>使用</span></summary>
+			<details open="false">
+				<div class="pro_table table">
+					<ul class="w_tableheader tableheader">
+						<li class="w_c1">ID</li>
+						<li class="w_c2">name</li>
+						<li class="w_c3">到达时间</li>
+						<li class="w_c4">优先数</li>
+						<li class="w_c5">需要运行时间</li>
+						<li class="w_c6">已用CPU时间</li>
+					</ul>
+					<div class="clr "></div>
+					<ul class="row">
+						<li class="w_c1">001</li>
+						<li class="w_c2">AA</li>
+						<li class="w_c3">1</li>
+						<li class="w_c4">2</li>
+						<li class="w_c5">4</li>
+						<li class="w_c6">3</li>
+					</ul>
+				</div>
+			</details>
+		</div> -->
+	</div>
+</div>
+
+
+<div class="right">
+	<div class="cpusetting section">
+		<h1>cup设定</h1>	
+		<label ><input type="radio" name="algorithm" value="先来先服务（FCFS）" id="algorithm1" checked="true"onclick="radiocheck()">先来先服务（FCFS）</label><br>
+		<label ><input type="radio" name="algorithm" value="简单轮转法（RR）"   id="algorithm2" onclick="radiocheck()">简单轮转法（RR）</label>
+		<br>
+		<label ><input type="radio" name="algorithm" value="非抢占式优先级调度算法　" id="algorithm3" onclick="radiocheck()">非抢占式优先级调度算法　</label>
+		<label ><input type="radio" name="algorithm" value="抢占式优先级调度算法" id="algorithm4" onclick="radiocheck()">抢占式优先级调度算法。</label>	
+		<br>
+		<div>
+			<h1>控制：</h1>
+			<button onclick="setrunning()">运行</button>
+			<button style="color:#CCC">中断</button>	
+		</div>	  
+	</div>
+
+
+	<div class="RunWindow section">
+		<h1>运行窗口<small id="AA"></small></h1>
+		<div class="running_table table">
+					<ul class="R_tableheader tableheader">
+						<li class="R_c1">time</li>
+						<li class="R_c2">ID</li>
+						<li class="R_c3">name</li>
+						<li class="R_c4">持续时间</li>
+						<li class="R_c5">优先数</li>
+						<li class="R_c6">需要运行时间</li>
+						<li class="R_c7">已用CPU时间</li>
+						<li class="R_c8">进程状态</li>
+					</ul>
+					<div class="clr "></div>
+					<div class="blank1"></div>
+<!-- 					<ul class="row">
+						<li class="R_c1">1</li>
+						<li class="R_c2">1</li>
+						<li class="R_c3">AA</li>
+						<li class="R_c4">1</li>
+						<li class="R_c5">1</li>
+						<li class="R_c6">11</li>
+						<li class="R_c7">111</li>
+						<li class="R_c8">w</li>
+					</ul>
+					<div class="clr "></div> -->
+
+		</div>
+	</div>
+	<div class="clr"></div>
+	<div class="section">
+		<h1>调度结果窗口</h1>
+		<div>
+			<div class="Finish_table table">
+
+					<ul class="F_tableheader tableheader">
+						<li class="F_c1">ID</li>
+						<li class="F_c2">name</li>
+						<li class="F_c3">到达时间</li>
+						<li class="F_c4">优先数</li>
+						<li class="F_c5">需要运行时间</li>
+						<li class="F_c6">开始时间</li>
+						<li class="F_c7">完成时间</li>
+						<li class="F_c8">周转时间</li>
+						<li class="F_c9">带权周转时间</li>
+					</ul>
+					<div class="clr "></div>
+					<div class="blank1"></div>
+<!-- 					<ul class="row">
+						<li class="F_c1">1</li>
+						<li class="F_c2">AA</li>
+						<li class="F_c3">1</li>
+						<li class="F_c4">1</li>
+						<li class="F_c5">1</li>
+						<li class="F_c6">1</li>
+						<li class="F_c7">1</li>
+						<li class="F_c8">1</li>
+						<li class="F_c9">1</li>
+					</ul>
+					<div class="clr "></div> -->
+					
+			</div>
+			<br>	
+		<!-- 	<label for="savelist">保存为</label> 
+			<input type="text" name="savelist" id="savelist" placeholder="请输入列表名称" >
+			<button>保存</button> -->
+		</div>
+		<!-- <div class="section">
+			<h1>保存的调度结果</h1></div>
+			<summary><span>调度结果1</span> (<span>所用算法</span>)</summary>
+			<details>
+				<div class="pro_table table">
+					<ul class="w_tableheader tableheader">
+						<li class="w_c1">ID</li>
+						<li class="w_c2">进程名称</li>
+						<li class="w_c3">到达时间</li>
+						<li class="w_c4">优先数</li>
+						<li class="w_c5">需要运行时间</li>
+						<li class="w_c6">已用CPU时间</li>
+					</ul>
+					<div class="clr "></div>
+					<ul class="row">
+						<li class="w_c1">001</li>
+						<li class="w_c2">AA</li>
+						<li class="w_c3">1</li>
+						<li class="w_c4">2</li>
+						<li class="w_c5">4</li>
+						<li class="w_c6">3</li>
+					</ul>
+				</div>
+			</details>
+		</div> -->
+	</div>
+
+</div>
+
+	<datalist  id="namelist" style="display:none">
+		<option value="AA">AA</option>
+		<option value="BB">BB</option>
+		<option value="CC">CC</option>
+		<option value="DD">DD</option>
+		<option value="EE">EE</option>
+		<option value="FF">FF</option>
+		<option value="GG">GG</option>
+		<option value="HH">HH</option>
+		<option value="II">II</option>
+		<option value="JJ">JJ</option>
+	</datalist >
+	<datalist  id="numberlist" style="display:none">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+		<option value="10">10</option>
+		<option value="11">11</option>
+		<option value="12">12</option>
+		<option value="13">13</option>
+		<option value="14">14</option>
+		<option value="15">15</option>
+		<option value="16">16</option>
+		<option value="17">17</option>
+		<option value="18">18</option>
+		<option value="19">19</option>
+		<option value="20">20</option>
+		<option value="21">21</option>
+		<option value="22">22</option>
+		<option value="23">23</option>
+		<option value="24">24</option>
+		<option value="25">25</option>
+		<option value="26">26</option>
+		<option value="27">27</option>
+		<option value="28">28</option>
+		<option value="29">29</option>
+		<option value="30">30</option>
+	</datalist >	
+</body>
+	<script type="text/javascript" src= "js/ProcessHandling.js"></script>
+</html>
