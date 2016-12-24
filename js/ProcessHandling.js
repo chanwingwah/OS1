@@ -3,7 +3,7 @@ var OStime = 0;
 var IDflag = 1;
 var running = 0;
 var next = 1;
-var ADD = 0;
+var ADD = -1;
 var algorithm = "先来先服务（FCFS）"
 document.getElementById('AA').innerHTML = ":"+algorithm;
 var processArray = new Array();
@@ -28,7 +28,7 @@ function setstop() {
 				next = 1;
 	}
 }
-//重置输入
+// 重置输入
 function resetaddinput() {
 	   document.getElementById('addname').value = "";
 	document.getElementById('addruntime').value = "";
@@ -105,7 +105,7 @@ function addprocess() {
 		resetaddinput();
 		processArray.push(p);
 		addtoWList(p);
-		ADD = 1;
+		ADD = p.priority;
 		return 1;
 	}
 	return 0;
@@ -278,7 +278,7 @@ function P_FS() {
 	 		processArray.sort(sortpriority);
 	 		var takeP = document.getElementById(processArray[0].ID);
 			removeElement(takeP);
-			if (processArray[0].selectedtime == -1) {
+			if (processArray[0].selectedtime ==-1) {
 		        processArray[0].selectedtime = OStime;}		
 		     	processArray[0].status = "R";	
 		     	next = 0;
@@ -322,25 +322,26 @@ function PP() {
 	 	// 操作1取出就绪列表
 	 	if (next) {
 	 		next = 0;
-			processArray.sort(sortpriority);
+	 		processArray.sort(sortpriority);
 	 		var takeP = document.getElementById(processArray[0].ID);
 			removeElement(takeP);
-			if (processArray[0].selectedtime == -1) {
-		        processArray[0].selectedtime = OStime;}		
-		     	processArray[0].status = "R";	
-		     	next = 0;
-		     	//打印调入
-		     	FCFSaddrun();
-		     	processArray[0].duringtime++;
-				processArray[0].getcputime++;
+			if (processArray[0].selectedtime ==-1) {
+		       processArray[0].selectedtime = OStime;
+		   }		
+		     processArray[0].status = "R";	
+		     //打印调入
+		     FCFSaddrun();
+		     processArray[0].duringtime++;
+			 processArray[0].getcputime++;
 	 	}else if (processArray[0].getcputime == processArray[0].runtime) {
 			//进入F队列：
 			processArray[0].status = "F";
 			processArray[0].Ftime = OStime;
 			FCFSaddrun();
 			//删除
-			F.T = F.Ftime- F.addtime;
-			F.PT = F.T/F.runtime;
+			F = processArray.shift();
+				F.T = F.Ftime- F.addtime;
+				F.PT = F.T/F.runtime;
 			FArray.push(F);
 			//在F表中显示
 			FCFSaddF();
@@ -352,25 +353,23 @@ function PP() {
 		    	PP();//重新调度下一进程；
 		    }
 
-		}else if (ADD) {//判断是否被抢占
-			ADD = 0;
+		}else if((ADD < processArray[0].priority)&& (ADD>0)) {//判断是否被抢占
+			ADD = -1;
 			FCFSaddrun();	
-			p = processArray[0];			
-			processArray.sort(sortpriority);
-			if (processArray[0]!= p) {
-				p.duringtime = 0;//终止
-				P.status = "W";
-				addtoWList(p);
-				next = 1;
-			}
+			processArray[0].duringtime ==0;	
+			processArray[0].status = "W";
+			addtoWList(processArray[0]);	
+			next = 1;
 			PP();//重新调度下一进程；
 		}else{
 	 			FCFSaddrun();
 	 			processArray[0].duringtime++;
 				processArray[0].getcputime++;
-
 	 	}
 }
+
+
+
 
 
 
