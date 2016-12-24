@@ -130,6 +130,7 @@ ul>li{
 	float: left;
 	list-style: none;
 	text-align: center;
+	overflow: visible;	
 }
 ul{
 		border-bottom: 1px solid #666;
