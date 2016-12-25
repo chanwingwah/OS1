@@ -237,7 +237,6 @@ function DOing() {
 			FArray.push(F);
 			//在F表中显示
 			FCFSaddF();
-			contT();
 		    next = 1;
 		    if ((processArray.length+PW.length) == 0 ) {
 		    	runing = 0;
