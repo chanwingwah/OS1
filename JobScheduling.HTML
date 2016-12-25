@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head id="qq">
+	<meta charset="UTF-8">
+	<title>作业调度</title>
+	<link rel="stylesheet" href="css/Job.css">
+</head>
+<body>
+<header>作业调度实验<div class="OStime">系统当前时间: <span>-1</span> s <button onclick="resetime()">重置</button></div>
+</header>
+<div class="blank">
+</div>
+<div class="left">
+	<div class="addprocess section">
+		<h1>添加新作业</h1>	
+		<label for="addname">进程名</label>  
+		<input type="text" name="addname" id="addname" list="namelist" required><br>
+		<label for="addruntime">需要运行时间</label> 
+		<input type="number" name="addruntime" id="addruntime" list="numberlist" max="30"  min="1" required><br>
+		<button class="bt" onclick="addjob()">提交作业</button><button onclick="resetaddinput()">清空</button>
+	</div>
+
+	<div>
+		<div class="wlist section">
+			<h1>等待队列</h1>
+			<div class="W_table table">
+				<div class="blank1"></div>
+				<ul class="w_tableheader tableheader">
+					<li class="c1">ID</li>
+					<li class="c2">name</li>
+					<li class="w_c3">到达时间</li>
+					<li class="w_c4">服务时间</li>
+				</ul>
+				<div class="clr "></div>
+				
+			</div>
+			<div class="clr"></div>
+			<br>
+		</div>
+	</div>
+</div>
+
+
+<div class="right">
+	<div class="cpusetting section">
+		<h1>cpu设定</h1>	
+		<label ><input type="radio" name="algorithm" value="FCFS" id="algorithm1" checked="true"onclick="radiocheck()">FCFS</label>
+		<label ><input type="radio" name="algorithm" value="SJF"  id="algorithm2" onclick="radiocheck()">SJF</label>
+		<label ><input type="radio" name="algorithm" value="HRN" id="algorithm3" onclick="radiocheck()">HRN</label>
+		<div>
+			<br><button onclick="setrunning()">运行</button> <button onclick="resetaa()"> 复位 </button>
+	</div>	  
+	</div>
+
+
+	<div class="RunWindow section">
+		<h1>运行窗口<small id="AA"></h1>
+		<div class="running_table table">
+					<ul class="R_tableheader tableheader">
+						<li class="c1">time</li>
+						<li class="c1">ID</li>
+						<li class="c2">name</li>
+						<li class="R_c3">服务时间</li>
+						<li class="R_c4">已用CPU时间</li>
+						<li class="R_c5">作业状态</li>
+					</ul>
+					<div class="clr "></div>
+					<div class="blank1"></div>
+		</div>
+	</div>
+	<div class="clr"></div>
+	<div class="section">
+		<h1 id="vv">调度结果窗口</h1>
+		<div>
+			<div class="Finish_table table">
+					<div class="blank1"></div>
+					<ul class="F_tableheader tableheader">
+						<li class="c1">ID</li>
+						<li class="c2">name</li>
+						<li class="F_c3">到达时间</li>
+						<li class="F_c4">开始时间</li>
+						<li class="F_c5">服务时间</li>
+						<li class="F_c6">完成时间</li>
+						<li class="F_c7">周转时间</li>
+						<li class="F_c8">带权周转时间</li>
+					</ul>
+					<div class="clr "></div>
+			</div>
+			<br>	
+			<ul class="bbb"><li>平均周转时间：<b id="PTT"></b></li><li>平均带权周转时间: <b id="PPTT"></b></li></ul>
+
+		</div>
+	</div>
+
+</div>
+
+	<datalist  id="namelist" style="display:none">
+		<option value="AA">AA</option>
+		<option value="BB">BB</option>
+		<option value="CC">CC</option>
+		<option value="DD">DD</option>
+		<option value="EE">EE</option>
+		<option value="FF">FF</option>
+		<option value="GG">GG</option>
+		<option value="HH">HH</option>
+		<option value="II">II</option>
+		<option value="JJ">JJ</option>
+	</datalist >
+</body>
+	<script type="text/javascript" src= "js/Job.js"></script>
+</html>
