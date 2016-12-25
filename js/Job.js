@@ -1,6 +1,6 @@
 // 先设定系统的时钟；
 var OStime = 0;
-var timer = 500;
+var timer = 100;
 var IDflag = 1;
 var running = 0;
 var PW = new Array();
@@ -30,7 +30,6 @@ timerID = setInterval(function (){
 function resetaa(){
 	if (running == 0 ) {
 		addtime = 1;
-		IDflag = 1;
 		for (var i = 0; i < PP.length; i++) {
 			chushihua(PP[i]);
 			addtoWList(PP[i]);
@@ -55,7 +54,10 @@ function setrunning() {
 	    FArray.length = 0;
 	    document.getElementById('AA').innerHTML = ":"+algorithm;
 	    document.getElementById('vv').innerHTML = "调度结果窗口_ <small>使用算法："+algorithm+"</small>"
-
+	    FTsum = 0;
+        FPTsum = 0;
+        PTT.innerHTML = 0;
+	    PPTT.innerHTML = 0;
 
 	}
 	
@@ -104,7 +106,7 @@ function resetime() {
 	processArray.length=0;
  	addtime = 1;
  	FArray.length == 0;
- 	timer = 1000;
+ 	timer = 100;
 
 	//重置时钟会清空就绪进程；运行中的进程，IDflag 也重置
 }
@@ -138,7 +140,13 @@ function addjob() {
 	var addruntime = document.getElementById('addruntime').value;
 		var p = new Process
 		p.name = addname;
+		if(!addname){
+			p.name = ranname();
+		}
 		p.runtime = addruntime;
+		if (!addruntime) {
+			p.runtime = Math.round(Math.random()*9)+1;
+		}
 		chushihua(p);
 		// 重置输入
 		resetaddinput();
@@ -146,26 +154,39 @@ function addjob() {
 		addtoWList(p);
 		return 1;
 }
-
+// 随机生成作业名
+function ranname() {var let = new Array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','T','S','T','U','V','W','X','Y','Z');
+var random1 = Math.round(Math.random()*25)+0;
+var random2 = Math.round(Math.random()*25)+0;
+return let[random1]+let[random2];}
 
 //获取运行算法选择：
-function radiocheck(e) {
-        if(!e){  
-          var e = window.event;  
-        }  
-        //获取事件点击元素  
-        var targ = e.target;  
-        //获取元素名称  
-        var tname = targ.tagName;  
-	if (targ.checked) {
-		algorithm = targ.value;
-		return 1;
-	}
-	return 0;
+// function radiocheck(e) {
+//         if(!e){  
+//           var e = window.event;  
+//         }  
+//         //获取事件点击元素  
+//         var targ = e.target;  
+//         //获取元素名称  
+//         var tname = targ.tagName;  
+// 	if (targ.checked) {
+// 		algorithm = targ.value;
+// 		return 1;
+// 	}
+// 	return 0;
 
-}
+// }
 
-
+function radiocheck(){
+  var temp = document.getElementsByName("algorithm");
+  for(var i=0;i<temp.length;i++)
+  {
+     if(temp[i].checked){
+     algorithm = temp[i].value;
+ 	 return temp[i].value;}
+  }
+  
+} 
 
 // 按进入时间排序：
 function FCFS(a,b){// 排序函数设定：
@@ -233,7 +254,7 @@ function DOing() {
 			F.TT = F.Ftime- F.addtime;
 			F.PT = F.TT/F.runtime;
 			FTsum += F.TT;
-			FPTsum = F.PT;
+			FPTsum += F.PT;
 			FArray.push(F);
 			//在F表中显示
 			FCFSaddF();
@@ -289,6 +310,7 @@ function run() {
 			OStime = 0;
 			showTime();  			
 			alert("队列执行完毕");
+					IDflag = 1;
 
 			return 1;
 		}
