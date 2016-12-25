@@ -18,7 +18,7 @@ var PP = new Array();
 var FArray = new Array();
 var addtime = 1;
 function Process() {}
-
+resetime();
 timerID = setInterval(function (){
 	if (running) {
 		run();//每秒监听一次
