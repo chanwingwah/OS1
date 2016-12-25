@@ -1,0 +1,203 @@
+body{
+	background:  url(../image/BG2.jpg) top left no-repeat fixed ;
+	background-size: 100%;	
+	margin: 0;
+	padding: 0;
+}
+header{
+	padding:10px 50px 0px;
+	font-weight: 900;
+	font-size: 30px;
+	position:fixed;
+	z-index:999;	
+	top: 0;
+	width: 100%;
+	background:rgba(0,0,0,0.3);
+	color: #FFF;
+}
+.OStime{
+	display: inline-block;
+	font-size: 20px;
+	font-weight: 900px;
+	margin:20px 30px;
+}
+.blank{
+	height: 80px;
+}
+
+.blank1{
+	height:20px;
+}
+
+.section{
+	margin-top: 20px;
+    position: relative;
+
+}
+.table{
+	overflow: auto;
+}
+.tableheader{
+	width: 100%;
+	font-size: 16px;
+	position:absolute;
+	z-index:999;	
+	top: 48px;
+	background: #51BBF7;
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #666;
+}
+
+.Finish_table{
+	height: 180px;
+}
+
+
+
+
+h1{
+	font-size: 25px;
+	line-height: 25px;
+	margin: 0;
+	padding: 12PX;
+}
+
+
+.addprocess>label{
+	display: inline-block;
+	width: 120px;
+	line-height: 2.5em;
+	text-align: right;
+}
+
+.cpusetting>label{
+	display: inline-block;
+	width: 100px;
+	line-height: 2em;
+}
+
+.clr{
+	clear: both;
+}
+input{
+	text-align:center;
+}
+.addprocess>input{
+	width: 180px;
+	line-height: 1.6em;
+}
+.bt{
+	margin-top: 10px;
+	margin-left: 128px;
+	margin-right: 10px;
+}
+.addprocess>button{
+	display: inline-block;
+	width: 85px;
+}
+
+.addprocess,.cpusetting{
+	height: 180px;
+}
+
+
+.cpusetting>div>button{
+	margin-top: 5px;
+	display: inline-block;
+	width: 85px;
+}
+
+.W_table{
+	height: 225px;
+}
+
+
+
+ul,li{padding:0;margin:0;}
+.left{
+	float: left;
+	margin: 0 80px;
+	width: 400px;
+}
+.right{
+	float: left;
+}
+ul>li{
+	float: left;
+	list-style: none;
+	text-align: center;
+}
+ul{
+	border-bottom: 1px solid #666;
+}
+
+.row{
+}
+.W_table li{
+	width: 100px;
+}
+.running_table li{
+	width: 100px;
+}
+.Finish_table li{
+	width: 80px;
+}
+li.F_c8{
+	width: 120px;
+}
+li.c1{
+	width: 80px;
+}
+.wlist{
+	height: 330px;
+}
+
+.RunWindow{
+	background:rgba(0,0,0,0.25);
+	height: 230px;
+	padding: 0px  ;
+
+}
+.RunWindow>h1{
+	font-size: 20px;
+	padding: 5px;
+
+}
+.running_table{
+	width: 710px;
+	margin: 0 5px 5px;
+	padding-top: 2px;
+	padding-left: 5px;
+	background: #000;
+	color: #FFF;
+	height: 186px;
+}
+.running_table .tableheader{
+	top: 35px;
+	width: 695px;
+}
+.running_table li{
+/*	font-size: 14px;
+*/}
+.running_table>ul{
+	display: inline-block;
+	width: 98%;
+	background-color: #000;
+}
+.Finish_table{
+	width: 720px;
+}
+
+.bbb{
+	float: left;
+	width: 720px;
+	margin: 20px 0px;
+	border-top: 1px solid #666;
+}
+
+.bbb>li{
+	float: right;
+	width: 250px;
+	text-align: left;
+	overflow: hidden;
+}
