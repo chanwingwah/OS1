@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>储存管理</title>
+	<link rel="stylesheet" href="css/Storage.css">
+</head>
+<body>
+		<div class="LEFT TOP" >
+				<h1>操作<small><button id="Step" onclick="StepF()">非单步</button></small></h1>
+				<button onclick="createStorage()">随机生成分区</button>
+				<button onclick="createJob()">随机生成作业</button>
+				<br>
+				<button onclick="distribute()">开始分配</button>
+				<button onclick="returnBefore()">回到未分配</button>
+				<br>
+				<button onclick="Recovery()">回收所有资源</button>
+				<button onclick="deleteALL()">清空所有</button>
+			<div class="clr "></div>
+		</div>
+		<div class="RIGHT TOP">
+					<h1>选择算法</h1>
+					<label ><input type="radio" name="algorithm" value="首次适应算法" id="algorithm1" checked="true"onclick="radiocheck()">首次适应算法</label>
+					<br>
+					<label ><input type="radio" name="algorithm" value="循环首次适应"   id="algorithm2" onclick="radiocheck()">循环首次适应</label>
+					<br>
+					<label ><input type="radio" name="algorithm" value="最佳适应算法" id="algorithm3" onclick="radiocheck()">最佳适应算法</label>
+					<br>
+					<label ><input type="radio" name="algorithm" value="最差适应算法" id="algorithm3" onclick="radiocheck()">最差适应算法</label>
+		</div>
+	<br>
+		<div class="BOTTOM LEFT" style="background:#EEE">
+			<div class="Storge table">
+					<div class="blank"></div>
+					<ul class="tableheader">
+						<li >分区编号</li>
+						<li >空间大小</li>
+						<li >剩余大小</li>
+						<li >分区起址</li>
+						<li >分配状态</li>
+					</ul>
+					<div class="clr "></div>
+			</div>
+		</div>
+		<div class="BOTTOM RIGHT" style="background:#EEE">
+			<div class="Job table">
+					<div class="blank"></div>
+					<ul class="tableheader">
+						<li >作业编号</li>
+						<li >作业大小</li>
+						<li >作业状态</li>
+						<li >占用分区</li>
+					</ul>
+			<div class="clr "></div>	
+			</div>
+		</div>
+</body>
+<script type="text/javascript" src = "js/Storage.js"></script>
+</html>
