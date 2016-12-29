@@ -27,7 +27,8 @@ function openwin() {
 　　if(window.open("https://hua-cyh.github.io/OS1/Storage.HTML", "newwindow", "height=484, width=761, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no,top=20, left =330, ")){
 	window.close();
 		}else{
-			document.write("窗口弹出失败，请把浏览器设置为允许此页弹窗，或点击<a href='https://hua-cyh.github.io/OS1/Storage.HTML' onclick='return popitup('https://hua-cyh.github.io/OS1/Storage.HTML') '>打开页面</a>");
+			document.write("窗口弹出失败，请把浏览器设置为允许此页弹窗，然后刷新，或点击<a href='https://hua-cyh.github.io/OS1/Storage.HTML' onclick='return popitup('https://hua-cyh.github.io/OS1/Storage.HTML') '>打开页面</a>");
+			window.close();
 		}
 		// }
 　　//写成一行
