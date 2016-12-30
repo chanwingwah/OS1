@@ -333,7 +333,7 @@ function doRequest() {
 			}
 			document.getElementById('CheckOUT1').innerHTML = "Yes";
 			document.getElementById('CheckOUT2').innerHTML = "Yes";
-			document.getElementById('CheckOUT3').innerHTML = "安全，存在安全序列:"+HTMLF;
+			document.getElementById('CheckOUT3').innerHTML = "存在安全序列:"+HTMLF;
 			document.getElementById('CheckOUT4').innerHTML = "分配成功";
 			
 			if ( Eq(JobArray[SelectJ-1].SA,JobArray[SelectJ-1].SM)) {
