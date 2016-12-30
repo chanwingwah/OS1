@@ -1,0 +1,167 @@
+ul,li{margin: 0;padding:0;}
+.clr{
+	clear: both;
+}
+
+body{
+	background:  url(../image/BG2.jpg) top left no-repeat fixed ;
+	/*background-color: blue;*/
+
+	background-size: 100%;	
+	margin: 0;
+	text-align: left;
+}
+header{
+	padding:10px 50px 10px;
+	font-weight: 900;
+	font-size: 30px;
+	position:fixed;
+	z-index:999;	
+	top: 0;
+	width: 100%;
+	background:rgba(0,0,0,0.3);
+	color: #FFF;
+
+}
+.blank{
+	height: 110px;
+}
+
+h1{
+	font-size: 24px;
+	margin: 0;
+	padding: 12PX;
+}
+h2{
+	font-size: 18px;
+	margin: 0;
+	padding: 6PX 12PX;
+
+}
+h3{
+	font-size: 18px;
+	margin: 0;
+	padding: 6PX 20PX;
+
+}
+
+label.label1{
+	display: inline-block;
+	width: 100px;
+	height: 1.6em;
+	line-height: 1.6em;
+	font-size: 15px;
+	text-align: right;
+	font-weight: 800px;
+	font-size: 16px;
+
+}
+
+label.label2{
+	display: inline-block;
+	width: 220px;
+
+	text-align: right;
+}
+
+input.SHURU{
+	display: inline-block;
+	width: 100px;
+	font-size: 15px;
+	margin-left: 10px;
+	margin:  5px 5px;
+	text-align: center;
+}
+#SelectABC input{
+	display: inline-block;
+	width: 35px;
+	font-size: 15px;
+	margin-right: 10px;
+	/*margin:  5px 5px;*/
+	text-align: center;
+}
+button{
+	display: inline-block;
+	width: 102px;
+	margin:10px 0px 0px 50px;
+	overflow:hidden; 
+	margin-left: 105px;
+}
+#Request{
+	margin-left: 10px;
+	
+}
+#zhiyuan{
+	margin-left: 20px;
+		color: #FFF;
+}
+
+.LEFT{
+	width: 350px;
+	display: inline-block;
+
+}
+
+.RIGHT{
+	display: inline-block;
+
+}
+.TOP{
+	margin:30px 20px 10px;
+	height: 300px;
+	overflow: hidden;
+	position: relative;
+
+}
+
+
+.OSstatus{
+}
+
+
+.BOTTOM{
+	float: left;
+	margin-top: 20px;
+	margin-left: 20px;
+	width: auto;
+	/*height: 300px;*/
+	overflow: auto;
+	background: #51BBF7;
+}
+.BOTTOM>div{
+	float: left;
+	padding: 0;
+	margin: 0;
+}
+.blank{
+	height: 25px;
+}
+
+
+ul,li{padding:0;margin:0;}
+ul{
+	/*border-top: 1px solid #333;*/
+	border-left: 1px solid #333;
+	width: auto;
+	text-align: center;
+
+
+}
+li{
+	border-bottom: 1px solid #333;
+	border-right: 1px solid #333;
+	display: inline-block;
+	width: 50px;
+	text-align: center;
+	height: 20px;
+	line-height: 20px;
+	background: #51BBF7;
+	/*color: #FFF;*/
+	cursor: pointer;
+}
+.U1{
+	border-top: 1px solid #333;
+	border-bottom: 1px solid #333;
+	border-right: 1px solid #333;
+}
+
