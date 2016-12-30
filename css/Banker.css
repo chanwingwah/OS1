@@ -5,7 +5,7 @@ ul,li{margin: 0;padding:0;}
 
 body{
 	background:  url(../image/BG2.jpg) top left no-repeat fixed ;
-	/*background-color: blue;*/
+	background-color: #51BBF7;
 
 	background-size: 100%;	
 	margin: 0;
@@ -164,4 +164,12 @@ li{
 	border-bottom: 1px solid #333;
 	border-right: 1px solid #333;
 }
-
+.U1:hover{
+	background-color: #FFF;
+}
+li:hover{
+	background-color: #FFF;
+}
+input:hover{
+	background-color: #CCC;
+}
