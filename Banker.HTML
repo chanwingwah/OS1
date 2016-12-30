@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>银行家算法</title>
+	<link rel="stylesheet" href="css/Banker.css">
+</head>
+<body>
+<header>银行家算法模拟</header>
+<div class="blank">
+	
+</div>
+		<div class="LEFT TOP" >
+				<h1>初始化</h1>
+				<h2>>设置数据: </h2>
+				<label class="label1" for="">输入进程数</label><input class="SHURU" type="number" id="N" max="10" min="1">
+				<br>
+				<label class="label1" for="">系统资源数</label><input class="SHURU" type="number" id="M" max="6" min="1">
+				<br>
+				<button onclick="getStart()">随机生成数据</button>
+				<br>
+				<h1>系统当前状态：<small class="OSstatus">未初始化</small></h1>
+				<h2 >Available:</h2>
+				<h3 id="Available"></h3>
+
+		</div>
+		<div class="RIGHT TOP">
+				<h1>资源分配</h1>
+				<h2 id="SelectH2">
+				</h2>
+				<h2><label  class="label2" for="">>设置请求资源:</label> <span  id="SelectABC"></span >  </h2>
+				<h2><label  class="label2" for=""></label><button onclick="doRequest()" id="Request" >请求分配资源</button></h2>
+				<h2><label  class="label2" for="">Request <= Need ?:</label> <span id="CheckOUT1"></span></h2>
+				<h2><label  class="label2" for="">Request <= Available ?:</label> <span id="CheckOUT2"></span></h2>
+				<h2><label  class="label2" for="">假定分配后系统安全为:</label> <span id="CheckOUT3"></span></h2>
+				<h2><label  class="label2" for="">分配结果:</label><span id="CheckOUT4"></span></h2>
+		</div>
+		<div class="clr"></div>
+		<div class="BOTTOM">
+			<div id="tbJob">
+				<ul class="U1">作业</ul>
+				<ul class="U2"><li>编号</li><li>状态</li><li>操作</li></ul>
+			</div>
+			<div id="tbMax">
+				<!-- <ul class="U1">Max</ul>
+				<ul class="U2"><li>A</li><li>B</li><li>C</li></ul> -->
+			</div>	
+			<div id="tbAllocation">
+				<!-- <ul class="U1">Allocation</ul>
+				<ul class="U2"><li>A</li><li>B</li><li>C</li></ul> -->
+			</div>	
+			<div id="tbNeed">
+			<!-- 	<ul class="U1">Need</ul>
+				<ul class="U2"><li>A</li><li>B</li><li>C</li></ul>		 -->	
+			</div>	
+		</div>
+</body>
+<script type="text/javascript" src = "js/Banker.js"></script>
+</html>
